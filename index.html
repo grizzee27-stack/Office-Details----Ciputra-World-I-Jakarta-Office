@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciputra World 1 Office Tower 2 — Investment Fact Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f12;
+    --surface: #161820;
+    --surface-2: #1d1f28;
+    --border: #2a2d3a;
+    --border-light: #33374a;
+    --text: #dde1f0;
+    --text-muted: #6b7194;
+    --text-dim: #9499b8;
+    --gold: #f0c060;
+    --gold-dim: #a07a30;
+    --green: #4adf8a;
+    --green-dim: #1e5e3a;
+    --blue: #60a8f0;
+    --blue-dim: #1e3e6a;
+    --purple: #b060f0;
+    --red: #f06060;
+    --orange: #f0a040;
+    --teal: #40d0c0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .wrapper { max-width: 980px; margin: 0 auto; padding: 48px 40px 80px; }
+
+  .doc-header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 48px; }
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 3px 9px; display: inline-block;
+  }
+  .badge-gold   { color: var(--gold);   background: rgba(240,192,96,0.1);  border: 1px solid rgba(240,192,96,0.25); }
+  .badge-green  { color: var(--green);  background: rgba(74,223,138,0.08); border: 1px solid rgba(74,223,138,0.2); }
+  .badge-blue   { color: var(--blue);   background: rgba(96,168,240,0.08); border: 1px solid rgba(96,168,240,0.2); }
+  .badge-teal   { color: var(--teal);   background: rgba(64,208,192,0.08); border: 1px solid rgba(64,208,192,0.2); }
+  .badge-orange { color: var(--orange); background: rgba(240,160,64,0.08); border: 1px solid rgba(240,160,64,0.2); }
+  h1.doc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 30px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #f0c060, #f0e0a0, #d0a040);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .doc-subtitle { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 14px; }
+  .meta-row {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    color: var(--text-muted); letter-spacing: 0.05em;
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .meta-row span { color: var(--blue); }
+
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 8.5px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+    color: var(--text); border-bottom: 1px solid var(--border);
+    padding-bottom: 10px; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .icon-box {
+    width: 22px; height: 22px; background: var(--surface-2);
+    border: 1px solid var(--border-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; flex-shrink: 0;
+  }
+
+  /* SPECS */
+  .specs-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 16px;
+  }
+  .spec-cell { background: var(--surface); padding: 14px 16px; }
+  .spec-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 8px;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
+  }
+  .spec-val {
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--text); line-height: 1.3;
+  }
+  .spec-val.gold   { color: var(--gold); }
+  .spec-val.green  { color: var(--green); }
+  .spec-val.blue   { color: var(--blue); }
+  .spec-val.orange { color: var(--orange); }
+  .spec-val.teal   { color: var(--teal); }
+  .spec-val.red    { color: var(--red); }
+  .spec-note { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+  /* SC BANNER */
+  .sc-banner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(240,192,96,0.15); border: 1px solid rgba(240,192,96,0.3);
+    margin-bottom: 16px;
+  }
+  .sc-cell {
+    background: rgba(240,192,96,0.06); padding: 14px 16px;
+  }
+  .sc-cell-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 8px;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 4px;
+  }
+  .sc-cell-val {
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold);
+    line-height: 1.3;
+  }
+  .sc-cell-note { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+  /* OVERTIME BOX */
+  .overtime-box {
+    background: rgba(240,160,64,0.06); border: 1px solid rgba(240,160,64,0.25);
+    border-left: 3px solid var(--orange); padding: 12px 16px; margin-bottom: 16px;
+  }
+  .overtime-header {
+    font-family: 'JetBrains Mono', monospace; font-size: 8.5px;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 5px;
+  }
+  .overtime-body { font-size: 12px; color: var(--text-muted); line-height: 1.65; }
+  .overtime-body strong { color: var(--orange); }
+
+  /* COMPLEX */
+  .complex-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .complex-block {
+    background: var(--surface); border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .complex-block::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+  .complex-block.gold::before  { background: var(--gold); }
+  .complex-block.blue::before  { background: var(--blue); }
+  .complex-block.green::before { background: var(--green); }
+  .complex-header { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .complex-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 8px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .complex-tag.gold  { color: var(--gold); }
+  .complex-tag.blue  { color: var(--blue); }
+  .complex-tag.green { color: var(--green); }
+  .complex-body { padding: 14px 16px; }
+  .complex-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 5px 0; border-bottom: 1px solid rgba(42,45,58,0.5);
+    font-size: 12px; color: var(--text-dim);
+  }
+  .complex-item:last-child { border-bottom: none; }
+  .complex-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .dot-gold  { background: var(--gold); }
+  .dot-blue  { background: var(--blue); }
+  .dot-green { background: var(--green); }
+  .complex-item strong { color: var(--text); font-weight: 600; }
+
+  /* RETAIL */
+  .retail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+  .retail-card { background: var(--surface); border: 1px solid var(--border); padding: 12px 14px; }
+  .retail-category {
+    font-family: 'JetBrains Mono', monospace; font-size: 7.5px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px;
+  }
+  .retail-name { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .retail-note { font-size: 11px; color: var(--text-muted); }
+
+  /* CONN PILLS */
+  .conn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .conn-pill {
+    background: var(--surface-2); border: 1px solid var(--border-light);
+    padding: 7px 14px; font-size: 12px; color: var(--text-dim);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .conn-pill .dist {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted);
+  }
+  .conn-pill.mrt     { border-color: var(--green-dim); background: rgba(74,223,138,0.05); color: var(--green); }
+  .conn-pill.mrt .dist { color: rgba(74,223,138,0.6); }
+  .conn-pill.bus     { border-color: var(--blue-dim); background: rgba(96,168,240,0.05); color: var(--blue); }
+  .conn-pill.bus .dist { color: rgba(96,168,240,0.6); }
+
+  .street-block { background: var(--surface); border: 1px solid var(--border); padding: 16px 20px; margin-bottom: 14px; }
+
+  .disclaimer {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--text-muted); line-height: 1.7; font-style: italic;
+  }
+
+  @media (max-width: 680px) {
+    .wrapper { padding: 28px 18px 60px; }
+    .specs-grid, .sc-banner { grid-template-columns: repeat(2, 1fr); }
+    .complex-wrap { grid-template-columns: 1fr; }
+    .retail-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="badge-row">
+      <span class="badge badge-gold">Investment Fact Sheet · Sections 01–03</span>
+      <span class="badge badge-teal">Grade A · Green Building Certified</span>
+      <span class="badge badge-blue">Jl. Satrio / Kuningan · CW1 Block</span>
+      <span class="badge badge-green">PT PMA Eligible · SHMSRS · Lower Zone Only</span>
+      <span class="badge badge-gold">Kunci Realty · May 2026</span>
+    </div>
+    <h1 class="doc-title">Ciputra World 1<br>Office Tower 2</h1>
+    <p class="doc-subtitle">Ciputra World 1 Jakarta — Jl. Prof. Dr. Satrio Kav. 3-5, Karet Kuningan, Setiabudi, Jakarta Selatan</p>
+    <div class="meta-row">
+      <div>Developer: <span>PT Ciputra Property Tbk (Ciputra Group)</span></div>
+      <div>Master Design: <span>RTKL Associates (USA)</span></div>
+      <div>Year Completed: <span>~2018</span></div>
+      <div>Investment Value: <span>IDR 1.6 Trillion</span></div>
+      <div>Postal Code: <span>12940</span></div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 01 — BUILDING SPECIFICATIONS ══ -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <h2 class="section-title"><span class="icon-box">⬡</span> Building Specifications</h2>
+    <div class="specs-grid">
+      <div class="spec-cell">
+        <div class="spec-label">Building Grade</div>
+        <div class="spec-val gold">Grade A</div>
+        <div class="spec-note">Green Building Council Indonesia certified</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Total Floors</div>
+        <div class="spec-val">47 Floors</div>
+        <div class="spec-note">Taller than DBS Tower (40F) in same complex</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Total GFA</div>
+        <div class="spec-val gold">~70,000 m²</div>
+        <div class="spec-note">Ciputra official at launch announcement</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Typical Floor Plate</div>
+        <div class="spec-val gold">~2,000 m²</div>
+        <div class="spec-note">Consistent with DBS Tower same podium</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Lift Zones</div>
+        <div class="spec-val">3 Zones</div>
+        <div class="spec-note">Low (16–27F) · Mid (28–45F) · High (46–55F)</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Certificate Type</div>
+        <div class="spec-val green">SHMSRS</div>
+        <div class="spec-note">Strata title — PT PMA eligible ✓</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Strata Zone</div>
+        <div class="spec-val orange">Lower Zone Only</div>
+        <div class="spec-note">Floors 16–27 · ~30% of total building</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Lease Zone</div>
+        <div class="spec-val blue">Mid + High</div>
+        <div class="spec-note">Floors 28–55 · ~70% offered as lease</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Land Title (Underlying)</div>
+        <div class="spec-val blue">HGB</div>
+        <div class="spec-note">Held by PT Ciputra Property</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">HGB Est. Remaining</div>
+        <div class="spec-val teal">~19–22 yrs</div>
+        <div class="spec-note">Newer build (2018) — better term than DBS Tower</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Year Completed</div>
+        <div class="spec-val">~2018</div>
+        <div class="spec-note">Building age: ~7 years</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Green Certification</div>
+        <div class="spec-val teal">GBCI</div>
+        <div class="spec-note">Green Building Council Indonesia standard</div>
+      </div>
+    </div>
+
+    <!-- SC BANNER -->
+    <div class="section-label" style="margin-bottom:8px;">Service Charge — Building Management Confirmed (Same Management as DBS Tower)</div>
+    <div class="sc-banner">
+      <div class="sc-cell">
+        <div class="sc-cell-label">Base Service Charge</div>
+        <div class="sc-cell-val">IDR 31,500–40,000</div>
+        <div class="sc-cell-note">/sqm/month · EXCLUDING electricity</div>
+      </div>
+      <div class="sc-cell">
+        <div class="sc-cell-label">Sinking Fund</div>
+        <div class="sc-cell-val">IDR 3,500</div>
+        <div class="sc-cell-note">/sqm/month · payable on top of SC</div>
+      </div>
+      <div class="sc-cell">
+        <div class="sc-cell-label">Total Owner Cost (1,500 sqm/yr)</div>
+        <div class="sc-cell-val">IDR 630M–783M</div>
+        <div class="sc-cell-note">Low–high range at 35,000–43,500/sqm avg</div>
+      </div>
+      <div class="sc-cell">
+        <div class="sc-cell-label">Electricity</div>
+        <div class="sc-cell-val">Metered Separately</div>
+        <div class="sc-cell-note">Billed direct to tenant; NOT in SC</div>
+      </div>
+    </div>
+
+    <!-- OVERTIME BOX -->
+    <div class="overtime-box">
+      <div class="overtime-header">⚠ Strata Operational Note — After-Hours AC Policy ("Lift Nyala, AC Koridor Mati")</div>
+      <div class="overtime-body">
+        Outside standard building hours (weekdays ~18:00–19:00, weekends), <strong>corridor air conditioning is shut off</strong> while lifts remain operational. This applies to both Office Tower 2 and DBS Tower as they share the same CW1 building management. Overtime AC for corridor and common areas is charged at a <strong>calculated additional cost per request</strong> — not included in the standard SC. Strata owners must define overtime AC cost allocation (owner vs. tenant) explicitly in the lease agreement before handover. Recommended structure: pass-through to tenant, payable directly to building management.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 02 — COMPLEX & COMMERCIAL CONNECTIVITY ══ -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <h2 class="section-title"><span class="icon-box">⬡</span> Complex &amp; Commercial Connectivity</h2>
+
+    <div class="complex-wrap">
+      <div class="complex-block gold">
+        <div class="complex-header">
+          <span class="complex-tag gold">CW1 · Direct Podium Connection (shared with DBS Tower, same physical structure)</span>
+        </div>
+        <div class="complex-body">
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>DBS Bank Tower</strong> — the other office tower in CW1. Both towers sit on the same podium and share Lotte Mall, Raffles Hotel, and Artpreneur access. From the perspective of a CW1 OT2 tenant, DBS Tower is an adjacent building on the same campus.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>Lotte Mall</strong> (formerly Lotte Shopping Avenue) — 140,000 sqm premium retail &amp; F&amp;B mall at podium level. Direct connection from Office Tower 2 lobby without exiting the building.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>Raffles Hotel Jakarta</strong> — 5-star, 200 keys. Shared podium access. Premier venue for client meetings and visiting investor delegations.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>Raffles Residences Jakarta</strong> — 80 ultra-luxury branded units on the same podium. Adds ultra-high-net-worth residential catchment to the building's footfall.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>Ciputra Artpreneur Center</strong> — 1,157-seat international theatre, gallery &amp; museum. Jakarta's premier CBD cultural venue; unique brand asset shared by the whole CW1 block.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-gold"></div>
+            <div><strong>Ascott Kuningan / Somerset Grand Citra</strong> — serviced apartments connected via podium. International corporate long-stay tenants; built-in captive workforce on-site.</div>
+          </div>
+        </div>
+      </div>
+      <div class="complex-block blue">
+        <div class="complex-header">
+          <span class="complex-tag blue">CW2 · Adjacent Integrated Block (same Jl. Satrio master development)</span>
+        </div>
+        <div class="complex-body">
+          <div class="complex-item">
+            <div class="complex-dot dot-blue"></div>
+            <div><strong>Tokopedia Tower</strong> — Grade A office (48F, GFA ~70,000 sqm), anchor tenant GoTo/Tokopedia. Elevates the address profile of the entire Jl. Satrio block for Grade A tenants.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-blue"></div>
+            <div><strong>W Hotels Jakarta</strong> — luxury lifestyle hotel; key F&amp;B and entertainment destination serving the CW1–CW2 corridor.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-blue"></div>
+            <div><strong>The Newton 1 &amp; Newton 2</strong> — twin residential towers, 1,000+ units combined. Largest captive residential population on Jl. Satrio; strongest built-in workforce pool for both CW1 office towers.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-blue"></div>
+            <div><strong>The Orchard Satrio</strong> — premium condominium with mixed F&amp;B podium. Adds retail footfall and residential density to the master block.</div>
+          </div>
+          <div class="complex-item">
+            <div class="complex-dot dot-blue"></div>
+            <div><strong>Fraser Suites + Ascott Sudirman Jakarta</strong> — international serviced apartments (192 units). Corporate expatriate long-stay; steady hospitality and F&amp;B contribution to the block economy.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Retail Selling Points -->
+    <div class="section-label" style="margin-top:20px; margin-bottom:10px;">Retail &amp; Lifestyle Selling Points — Within &amp; Around Complex</div>
+    <div class="retail-grid">
+      <div class="retail-card">
+        <div class="retail-category">Retail · Podium Direct</div>
+        <div class="retail-name">Lotte Mall</div>
+        <div class="retail-note">140,000 sqm; direct podium access from OT2 lobby — no need to exit building</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">F&amp;B · In-Building</div>
+        <div class="retail-name">Food Court</div>
+        <div class="retail-note">Multi-tenant; shared across CW1 podium serving DBS Tower and OT2 tenants</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">F&amp;B · Complex Ground</div>
+        <div class="retail-name">Kopitagram</div>
+        <div class="retail-note">Ground-level coffee; part of Jl. Satrio block F&amp;B offering</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Sports · Complex</div>
+        <div class="retail-name">Padel Pro</div>
+        <div class="retail-note">Premium padel facility within the CW master block; lifestyle tenant amenity</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Hospitality · CW1 Podium</div>
+        <div class="retail-name">Raffles Hotel</div>
+        <div class="retail-note">5-star dining, bar &amp; meeting rooms; same podium — direct access for OT2 tenants</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Banking · Lobby</div>
+        <div class="retail-name">ATM Gallery + Bank</div>
+        <div class="retail-note">Lobby level; shared CW1 complex banking facilities</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Culture · CW1 Podium</div>
+        <div class="retail-name">Ciputra Artpreneur</div>
+        <div class="retail-note">1,157-seat theatre + museum; shared with DBS Tower on same podium</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Hospitality · CW2</div>
+        <div class="retail-name">W Hotels Jakarta</div>
+        <div class="retail-note">Lifestyle hotel on adjacent CW2 block; F&amp;B &amp; event venue for OT2 tenants</div>
+      </div>
+      <div class="retail-card">
+        <div class="retail-category">Residential · CW2</div>
+        <div class="retail-name">Newton 1 &amp; Newton 2</div>
+        <div class="retail-note">1,000+ captive residential units next door; largest workforce pool on Jl. Satrio</div>
+      </div>
+    </div>
+
+    <!-- Surrounding -->
+    <div class="section-label" style="margin-bottom:10px;">Surrounding Commercial (Walking Distance)</div>
+    <div class="conn-row">
+      <div class="conn-pill"><strong>ITC Kuningan</strong><span class="dist">~270m · 4 min walk</span></div>
+      <div class="conn-pill"><strong>Mega Kuningan Complex</strong><span class="dist">~307m · 5 min walk</span></div>
+      <div class="conn-pill"><strong>Mall Ambassador</strong><span class="dist">~adjacent · 1–3 min walk</span></div>
+      <div class="conn-pill"><strong>Kuningan City</strong><span class="dist">~630m · 9 min walk</span></div>
+      <div class="conn-pill"><strong>RS Jakarta</strong><span class="dist">10 min drive</span></div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 03 — STREETS & TRANSPORT ══ -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <h2 class="section-title"><span class="icon-box">⬡</span> Streets, Area &amp; Transport Connectivity</h2>
+
+    <div class="street-block" style="margin-bottom:14px;">
+      <div class="spec-label" style="margin-bottom:8px;">Address &amp; Street Context</div>
+      <div style="font-size:13px; color:var(--text-dim); line-height:1.9;">
+        <strong style="color:var(--text);">Primary address:</strong> Jl. Prof. Dr. Satrio Kav. 3-5, Karet Kuningan, Kec. Setiabudi, Jakarta Selatan 12940 — identical to DBS Tower; both towers share the same site address on the CW1 block.<br>
+        <strong style="color:var(--text);">Main frontage:</strong> Jl. Prof. Dr. Satrio — major east-west connector from Sudirman (west) through Kuningan to Rasuna Said (east). Transjakarta Halte DBS Tower / CW1 sits directly fronting this side, serving both office towers.<br>
+        <strong style="color:var(--text);">Southern boundary:</strong> Jl. Gatot Subroto — major north-south arterial; Transjakarta Gatot Subroto corridor stops accessible from this side. Connects to Semanggi interchange and toll network.<br>
+        <strong style="color:var(--text);">Eastern axis:</strong> Jl. H.R. Rasuna Said — Kuningan and embassy corridor begins at this intersection. Building is at the western convergence, optimally positioned between the Sudirman and Kuningan axes.<br>
+        <strong style="color:var(--text);">Area context:</strong> Mega Kuningan sub-district, between Jl. Gatot Subroto (south) and Jl. Satrio (north). CW1 Office Tower 2 and DBS Tower together constitute the dominant Grade A office presence at this node — the closest point in Kuningan to the MRT network.<br>
+        <strong style="color:var(--text);">Administrative area:</strong> Karet Kuningan, Setiabudi, Jakarta Selatan — South Jakarta ✓ per client brief.
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:10px;">Public Transport Access</div>
+    <div class="conn-row">
+      <div class="conn-pill mrt">🚇 MRT Bendungan Hilir (Benhil)<span class="dist">~417m · 6–7 min walk · closest MRT of all three buildings in shortlist</span></div>
+      <div class="conn-pill bus">🚌 Halte DBS Tower / CW1 (Transjakarta)<span class="dist">Fronting Jl. Satrio — named halte at front door; serves OT2 equally</span></div>
+      <div class="conn-pill bus">🚌 Halte Gatot Subroto (Transjakarta)<span class="dist">South side · multiple corridor lines</span></div>
+    </div>
+
+    <div style="background:var(--surface-2); border:1px solid var(--border); padding:14px 18px; font-size:12px; color:var(--text-muted); line-height:1.75;">
+      <strong style="color:var(--text);">MRT Note — Shortest Walk in Shortlist, Shared with DBS Tower:</strong> CW1 Office Tower 2 and DBS Bank Tower share the same building address and the same ~417m walk to MRT Bendungan Hilir (Benhil) — the shortest MRT distance in this shortlist. Both towers benefit from the named Transjakarta Halte DBS Tower / CW1 directly fronting Jl. Satrio, which is the only dedicated building-front bus halt among the four properties. MRT Bendungan Hilir sits one stop north of Istora Mandiri (Equity/Treasury corridor) on the same North-South Line, connecting workers from Blok M, Senayan, Dukuh Atas, and Bundaran HI. Transjakarta lines 1P, 4C, 5F, 6D, 6K, 9, M44 stop at the front of the building.
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    Sections 01–03 only. DD Questions (Q1–Q7), financial model, and risk flags to be added in subsequent memo. Building specifications sourced from PT Ciputra official launch announcement (2013), JLL Indonesia, sewakantorcbd.com, and ruangkantorku.com. SC and Sinking Fund rates confirmed by building management (same management as DBS Bank Tower). Floor count and GFA per Ciputra Group official launch materials. Strata zone limitation (lower floors only) confirmed per Ciputra launch disclosures. HGB remaining term is estimated; verify exact certificate from seller/PPAT. NJOP must be obtained from Dispenda DKI Jakarta. This document is prepared for internal use by Kunci Realty and is not financial advice.
+  </div>
+
+</div>
+</body>
+</html>
